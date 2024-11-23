@@ -7,7 +7,7 @@ const router = Router();
 
 router.post(
   "/",
-  body("name").notEmpty().withMessage("El nombre del producto es Obligatorio"),
+ body("name").notEmpty().withMessage("El nombre del producto es Obligatorio"),
   body("description")
     .notEmpty()
     .withMessage("La descripción del producto es Obligatoria"),

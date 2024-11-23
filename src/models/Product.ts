@@ -2,11 +2,12 @@
 import mongoose,{Schema,Document} from "mongoose";
 
 
-export type ProductType = Document & {
+export interface IProduct extends Document {
     name:string,
     description:string,
     price:number,
-    available:boolean
+    available:boolean,
+    image:string
 }
 
 const ProductSchema: Schema = new Schema({
@@ -28,9 +29,14 @@ const ProductSchema: Schema = new Schema({
         type:Boolean,
         required:true
     },
+    image:{
+        type:String,
+        required: true,
+        trim:true
+    }
 })
 
-const Product = mongoose.model<ProductType>('Product',ProductSchema)
+const Product = mongoose.model<IProduct>('Product',ProductSchema)
 
 export default Product
 
